@@ -1,36 +1,36 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
-import NewTaskForm from './components/newTaskForm/NewTaskForm'
-import Footer from './components/Footer/Footer'
-import TaskList from './components/TaskList/TaskList'
+import NewTaskForm from './components/newTaskForm/NewTaskForm';
+import Footer from './components/Footer/Footer';
+import TaskList from './components/TaskList/TaskList';
 
 function App() {
-  const completed = false
-  const [taskList, setTaskList] = useState([])
-  const [isChecked, setIsChecked] = useState(false)
-  const [taskListFiltred, setTaskListFiltred] = useState(taskList)
+  const completed = false;
+  const [taskList, setTaskList] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
+  const [taskListFiltred, setTaskListFiltred] = useState(taskList);
 
-  useEffect(() => setTaskListFiltred(taskList), [taskList])
+  useEffect(() => setTaskListFiltred(taskList), [taskList]);
 
   const tasksListFiltred = (value) => {
     if (value === 'all') {
-      setTaskListFiltred(taskList)
+      setTaskListFiltred(taskList);
     } else {
-      const newTaskList = [...taskList].filter((item) => item.completed === value)
-      setTaskListFiltred(newTaskList)
+      const newTaskList = [...taskList].filter((item) => item.completed === value);
+      setTaskListFiltred(newTaskList);
     }
-  }
+  };
   const tasksListComplete = (task) => {
     setTaskList((taskList) =>
       taskList.map((item) => (item.id === task.id ? { ...item, completed: !item.completed } : { ...item }))
-    )
-  }
+    );
+  };
   const createTask = (task) => {
-    setTaskList([...taskList, task])
-  }
+    setTaskList([...taskList, task]);
+  };
   const removeTask = (task) => {
-    setTaskList(taskList.filter((item) => item.id !== task.id))
-  }
+    setTaskList(taskList.filter((item) => item.id !== task.id));
+  };
 
   return (
     <section className="todoapp">
@@ -54,7 +54,7 @@ function App() {
         />
       </section>
     </section>
-  )
+  );
 }
 
-export default App
+export default App;

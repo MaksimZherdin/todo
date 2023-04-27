@@ -1,27 +1,23 @@
-import Task from '../Task/Task'
+import PropTypes from 'prop-types';
 
-import PropTypes from 'prop-types'
+import Task from '../Task/Task';
 
 function TaskList({ taskListFiltred, removeTask, tasksListComplete, completed, isChecked }) {
   return (
-    <>
-      <ul className="todo-list">
-        {taskListFiltred.map((item) => {
-          return (
-            <Task
-              task={item}
-              key={item.id}
-              description={item.name}
-              removeTask={removeTask}
-              tasksListComplete={tasksListComplete}
-              completed={completed}
-              isChecked={isChecked}
-            />
-          )
-        })}
-      </ul>
-    </>
-  )
+    <ul className="todo-list">
+      {taskListFiltred.map((item) => (
+        <Task
+          task={item}
+          key={item.id}
+          description={item.name}
+          removeTask={removeTask}
+          tasksListComplete={tasksListComplete}
+          completed={completed}
+          isChecked={isChecked}
+        />
+      ))}
+    </ul>
+  );
 }
 
 TaskList.defaultProps = {
@@ -30,14 +26,21 @@ TaskList.defaultProps = {
   tasksListComplete: () => {},
   completed: false,
   isChecked: false,
-}
+};
 
 TaskList.propTypes = {
-  taskListFiltred: PropTypes.arrayOf(PropTypes.object),
+  taskListFiltred: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      completed: PropTypes.bool,
+      isChecked: PropTypes.bool,
+      id: PropTypes.func,
+    })
+  ),
   removeTask: PropTypes.func,
   tasksListComplete: PropTypes.func,
   completed: PropTypes.bool,
   isChecked: PropTypes.bool,
-}
+};
 
-export default TaskList
+export default TaskList;
