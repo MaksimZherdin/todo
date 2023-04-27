@@ -43,11 +43,11 @@ Footer.propTypes = {
       name: PropTypes.string,
       completed: PropTypes.bool,
       isChecked: PropTypes.bool,
-      id: PropTypes.func,
+      id: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
     })
   ),
-  setTaskList: PropTypes.func,
-  tasksListFiltred: PropTypes.func,
+  setTaskList: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
+  tasksListFiltred: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
 };
 
 export default Footer;

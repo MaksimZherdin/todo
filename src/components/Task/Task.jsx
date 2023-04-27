@@ -26,7 +26,6 @@ function Task({ removeTask, task, tasksListComplete }) {
   const func = () => {
     task.isChecked = !task.isChecked;
     tasksListComplete(task);
-    console.log(task);
   };
 
   return (
@@ -68,7 +67,7 @@ Task.propTypes = {
     name: PropTypes.string,
     completed: PropTypes.bool,
     isChecked: PropTypes.bool,
-    id: PropTypes.func,
+    id: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   }),
   tasksListComplete: PropTypes.func,
   isChecked: PropTypes.bool,

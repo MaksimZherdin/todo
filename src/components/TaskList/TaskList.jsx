@@ -34,7 +34,7 @@ TaskList.propTypes = {
       name: PropTypes.string,
       completed: PropTypes.bool,
       isChecked: PropTypes.bool,
-      id: PropTypes.func,
+      id: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
     })
   ),
   removeTask: PropTypes.func,
