@@ -29,28 +29,21 @@ function Task({ removeTask, task, tasksListComplete }) {
   };
 
   return (
-    <li className={task.completed ? 'completed' : ''}>
-      <div className="view">
-        <input
-          id=""
-          defaultChecked={task.isChecked ? boolean : !boolean}
-          onClick={func}
-          className="toggle"
-          type="checkbox"
-        />
-        <label htmlFor="">
-          <span className="description">{editing ? set() : task.name}</span>
-          <span className="created">{time(new Date())}</span>
-        </label>
-        <button aria-label="icon-edit" type="button" onClick={() => setEditing(!editing)} className="icon icon-edit" />
-        <button
-          aria-label="icon-destroy"
-          type="button"
-          onClick={() => removeTask(task)}
-          className="icon icon-destroy"
-        />
-      </div>
-    </li>
+    <div className="view">
+      <input
+        id=""
+        defaultChecked={task.isChecked ? boolean : !boolean}
+        onClick={func}
+        className="toggle"
+        type="checkbox"
+      />
+      <label htmlFor="">
+        <span className="description">{editing ? set() : task.name}</span>
+        <span className="created">{time(new Date())}</span>
+      </label>
+      <button aria-label="icon-edit" type="button" onClick={() => setEditing(!editing)} className="icon icon-edit" />
+      <button aria-label="icon-destroy" type="button" onClick={() => removeTask(task)} className="icon icon-destroy" />
+    </div>
   );
 }
 

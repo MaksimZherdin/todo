@@ -6,15 +6,17 @@ function TaskList({ taskListFiltred, removeTask, tasksListComplete, completed, i
   return (
     <ul className="todo-list">
       {taskListFiltred.map((item) => (
-        <Task
-          task={item}
-          key={item.id}
-          description={item.name}
-          removeTask={removeTask}
-          tasksListComplete={tasksListComplete}
-          completed={completed}
-          isChecked={isChecked}
-        />
+        <li className={item.completed ? 'completed' : ''}>
+          <Task
+            task={item}
+            key={item.id}
+            description={item.name}
+            removeTask={removeTask}
+            tasksListComplete={tasksListComplete}
+            completed={completed}
+            isChecked={isChecked}
+          />
+        </li>
       ))}
     </ul>
   );
