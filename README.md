@@ -1,1 +1,1 @@
-https://vercel.com/stigmataz/todo-qwfl4bd06/stigmataz
+https://todo-qwfl4bd06-stigmataz.vercel.app/
