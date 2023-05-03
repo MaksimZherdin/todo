@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 function NewTaskForm({ createTask, completed, isChecked }) {
   const [counter, setCounter] = useState(0);
-
+  const [valueSec, setValueSec] = useState(null);
+  const [valueMin, setValueMin] = useState(null);
   function func() {
     setCounter((prev) => prev + 1);
     return counter;
@@ -19,9 +20,14 @@ function NewTaskForm({ createTask, completed, isChecked }) {
           completed,
           isChecked,
           id: func(),
+          min: valueMin,
+          sec: valueSec,
+          timer: false,
         };
         createTask(newTask);
         setTaskName('');
+        setValueMin(0);
+        setValueSec(0);
       }
     }
   };
@@ -29,13 +35,33 @@ function NewTaskForm({ createTask, completed, isChecked }) {
   return (
     <>
       <h1>todos</h1>
-      <input
-        value={taskName}
-        onChange={(e) => setTaskName(e.target.value)}
-        onKeyDown={click}
-        className="new-todo"
-        placeholder="What needs to be done?"
-      />
+      <form className="new-todo-form">
+        <input
+          value={taskName}
+          onChange={(e) => setTaskName(e.target.value)}
+          onKeyDown={click}
+          className="new-todo"
+          placeholder="Task"
+        />
+        <input
+          min={0}
+          type="number"
+          value={valueMin}
+          onChange={(e) => setValueMin(e.target.value)}
+          className="new-todo-form__timer"
+          placeholder="Min"
+          onKeyDown={click}
+        />
+        <input
+          min={0}
+          type="number"
+          value={valueSec}
+          onChange={(e) => setValueSec(e.target.value)}
+          className="new-todo-form__timer"
+          placeholder="Sec"
+          onKeyDown={click}
+        />
+      </form>
     </>
   );
 }
