@@ -12,7 +12,7 @@ function Task({ removeTask, task, tasksListComplete }) {
       setEditing(false);
     }
   };
-  const style = { fontSize: '20px' };
+  const style = { fontSize: '50px' };
   const set = () => (
     <input
       style={style}
