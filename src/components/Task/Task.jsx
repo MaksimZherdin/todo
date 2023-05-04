@@ -58,54 +58,52 @@ function Task({ removeTask, task, tasksListComplete }) {
     task.timer = true;
   };
   return (
-    <li className={task.completed ? 'completed' : ''}>
-      <div className="view">
-        {editing ? (
-          set()
-        ) : (
-          <>
-            <input
-              id=""
-              defaultChecked={task.isChecked ? boolean : !boolean}
-              onClick={func}
-              className="toggle"
-              type="checkbox"
-            />
-            <label htmlFor="">
-              <span className="title">{task.name}</span>
-              <span className="description">
-                <button
-                  onClick={() => startTimer()}
-                  aria-label="icon icon-play"
-                  type="button"
-                  className="icon icon-play"
-                />
-                <button
-                  onClick={() => stopTimer()}
-                  aria-label="icon icon-pause"
-                  type="button"
-                  className="icon icon-pause"
-                />
-                {minutes == null ? 0 : minutes}min:{seconds == null ? 0 : seconds}sec
-              </span>
-              <span className="description">{time(new Date())}</span>
-            </label>
-            <button
-              aria-label="icon-edit"
-              type="button"
-              onClick={() => setEditing(!editing)}
-              className="icon icon-edit"
-            />
-            <button
-              aria-label="icon-destroy"
-              type="button"
-              onClick={() => removeTask(task)}
-              className="icon icon-destroy"
-            />
-          </>
-        )}
-      </div>
-    </li>
+    <div className="view">
+      {editing ? (
+        set()
+      ) : (
+        <>
+          <input
+            id=""
+            defaultChecked={task.isChecked ? boolean : !boolean}
+            onClick={func}
+            className="toggle"
+            type="checkbox"
+          />
+          <label htmlFor="">
+            <span className="title">{task.name}</span>
+            <span className="description">
+              <button
+                onClick={() => startTimer()}
+                aria-label="icon icon-play"
+                type="button"
+                className="icon icon-play"
+              />
+              <button
+                onClick={() => stopTimer()}
+                aria-label="icon icon-pause"
+                type="button"
+                className="icon icon-pause"
+              />
+              {minutes == null ? 0 : minutes}min:{seconds == null ? 0 : seconds}sec
+            </span>
+            <span className="description">{time(new Date())}</span>
+          </label>
+          <button
+            aria-label="icon-edit"
+            type="button"
+            onClick={() => setEditing(!editing)}
+            className="icon icon-edit"
+          />
+          <button
+            aria-label="icon-destroy"
+            type="button"
+            onClick={() => removeTask(task)}
+            className="icon icon-destroy"
+          />
+        </>
+      )}
+    </div>
   );
 }
 

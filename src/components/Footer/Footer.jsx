@@ -7,22 +7,14 @@ function Footer({ taskList, setTaskList, tasksListFiltred }) {
     setTaskList((taskList) => taskList.filter((item) => item.completed === false));
   };
   const counter = () => {
-    let counter = 0;
-    return function () {
-      for (let i = 0; i < taskList.length; i += 1) {
-        if (taskList[i].completed === false) {
-          counter += 1;
-        }
-      }
-      return counter;
-    };
+    let items = 0;
+    taskList.reduce((acc, curr) => (curr.completed === false ? items++ : items + 0), 1);
+    return items;
   };
-
-  const count = counter();
 
   return (
     <footer className="footer">
-      <span className="todo-count">{count()} items left</span>
+      <span className="todo-count">{counter()} items left</span>
       <TasksFilter tasksListFiltred={tasksListFiltred} setTaskList={setTaskList} taskList={taskList} />
       <button type="button" onClick={clearList} className="clear-completed">
         Clear completed

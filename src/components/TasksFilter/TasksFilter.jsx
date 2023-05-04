@@ -4,19 +4,16 @@ function TasksFilter({ tasksListFiltred }) {
   return (
     <ul className="filters">
       <li>
-        <button type="button" className="selected" onClick={() => tasksListFiltred('all')}>
-          All
-        </button>
+        <input value="all" name="filter" type="radio" className="selected" onClick={() => tasksListFiltred('all')} />
+        <label htmlFor="all">All</label>
       </li>
       <li>
-        <button type="button" onClick={() => tasksListFiltred(false)}>
-          Active
-        </button>
+        <input value="active" name="filter" type="radio" onClick={() => tasksListFiltred(false)} />
+        <label htmlFor="active">Active</label>
       </li>
       <li>
-        <button type="button" onClick={() => tasksListFiltred(true)}>
-          Completed
-        </button>
+        <input value="completed" name="filter" type="radio" onClick={() => tasksListFiltred(true)} />
+        <label htmlFor="completed">Completed</label>
       </li>
     </ul>
   );

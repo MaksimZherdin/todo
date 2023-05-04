@@ -41,6 +41,7 @@
     ],
     "no-shadow": "off",
     "react/react-in-jsx-scope": "off",
+    "no-plusplus": "off",
     "react/prop-types": 0,
     "react/state-in-constructor": 0,
     "import/no-unresolved": [
