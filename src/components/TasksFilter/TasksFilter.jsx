@@ -4,7 +4,7 @@ function TasksFilter({ tasksListFiltred }) {
   return (
     <ul className="filters">
       <li className="radio">
-        <input id="all" name="filter" value="All" type="radio" onClick={() => tasksListFiltred('all')} />
+        <input id="all" name="filter" defaultChecked value="All" type="radio" onClick={() => tasksListFiltred('all')} />
         <label htmlFor="all">All</label>
       </li>
       <li className="radio">

@@ -239,6 +239,28 @@ body {
   text-decoration: line-through;
 }
 
+.radio input[type='radio'] {
+  display: none;
+}
+
+.radio {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.radio label {
+  margin: 0px 2px;
+  padding: 3px 8px;
+  color: #828282;
+  cursor: pointer;
+}
+
+.radio input[type='radio']:checked + label {
+  transition: 0.2s ease;
+  border: 2px solid #a2a2a2;
+  border-radius: 5px;
+}
+
 .todo-list li .icon {
   position: absolute;
   top: 0;
