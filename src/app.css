@@ -159,6 +159,28 @@ body {
   padding: 10px 27px 10px 27px;
 }
 
+.radio input[type='radio'] {
+  display: none;
+}
+
+.radio {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.radio label {
+  margin: 0px 2px;
+  padding: 3px 8px;
+  color: #828282;
+  cursor: pointer;
+}
+
+.radio input[type='radio']:checked + label {
+  transition: 0.2s ease;
+  border: 2px solid #a2a2a2;
+  border-radius: 5px;
+}
+
 .toggle-all:checked + label:before {
   color: #737373;
 }
